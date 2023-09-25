@@ -1,8 +1,8 @@
 {% comment %}New initial code template{% endcomment %}
-{% block env %}{% endblock env %}
+{% block env %}from collections.abc import Iterable{% endblock env %}
 
 {% block start %}
-def quadratic_roots(a: int, b: int, c: int) -> tuple[int, int] | str:
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
     # your code here
     return []
 {% endblock start %}
@@ -15,7 +15,7 @@ print(quadratic_roots(1, 2, 3))
 # These "asserts" are used for self-checking
 {% block tests %}
 {% for t in tests %}
-assert {% block call %}quadratic_roots({{t.input|p_args}})
+assert {% block call %}list(quadratic_roots({{t.input|p_args}}))
 {% endblock %} == {% block result %}{{t.answer|p}}{% endblock %}{% endfor %}
 {% endblock %}
 

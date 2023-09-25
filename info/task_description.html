@@ -16,7 +16,7 @@
     <li>no real roots (<code>D < 0</code>).</li>
 </ul>
 <p>
-    Your code must return a tuple containing two values: the roots <code>x<sub>1</sub>, x<sub>2</sub></code>, sorted descending. If there's only one real root, both values will be the same. If there are no real roots, the array should contain the string <code>"No real roots"</code>.
+    Your code must return {% if is_js %}a tuple{% else %}<span translate="no">Iterable</span>{% endif %} containing two values: the roots <code>x<sub>1</sub>, x<sub>2</sub></code>, sorted descending. If there's only one real root, both values will be the same. If there are no real roots, the {% if is_js %}tuple{% else %}<span translate="no">Iterable</span>{% endif %} should contain the string <code>"No real roots"</code>.
 </p>
 
 <!-- Explain input and output values -->
@@ -25,7 +25,7 @@
 </p>
 
 <p>
-    <strong>Output:</strong> <span translate="repeat">Tuple</span> of two integers <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span> or string <span translate="no">(str{% if is_js %}ing{% endif %})</span>. 
+    <strong>Output:</strong> {% if is_js %}<span translate="repeat">Tuple</span>{% else %}Tuple or other Iterable{% endif %} of two integers <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span> or string <span translate="no">(str{% if is_js %}ing{% endif %})</span>. 
 </p>
 
 <p>
