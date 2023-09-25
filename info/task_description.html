@@ -1,0 +1,53 @@
+<!-- Describe task in general -->
+
+<p>
+    A quadratic equation is represented as <code>ax<sup>2</sup> + bx + c = 0</code>. The general formula to find its roots (x-values for which y = 0) is:  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}quadratic.png" alt="example" style="max-height: 200px"/>
+</p>
+<p>
+    This formula provides two roots: <code>x<sub>1</sub>, x<sub>2</sub></code>. The value inside the square root, <code>b<sup>2</sup>-4ac</code> is known as the discriminant (<code>D</code>). Based on the value of the discriminant, a quadratic equation can have:
+</p>
+<ul>
+    <li>two distinct real roots (<code>D > 0</code>);</li>
+    <li>one real root (<code>D = 0</code>);</li>
+    <li>no real roots (<code>D < 0</code>).</li>
+</ul>
+<p>
+    Your code must return a tuple containing two values: the roots <code>x<sub>1</sub>, x<sub>2</sub></code>, sorted descending. If there's only one real root, both values will be the same. If there are no real roots, the array should contain the string <code>"No real roots"</code>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+    <strong>Input:</strong> Three integers <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+    <strong>Output:</strong> <span translate="repeat">Tuple</span> of two integers <span translate="no">({% if is_js %}number{% else %}int{% endif %})</span> or string <span translate="no">(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Examples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>How it’s used:</strong>
+    <i>this function can be useful in mathematical computations, physics simulations, optimization problems, or anywhere quadratic equations are utilized.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Preconditions:</strong>
+    <ul>
+    <li><i>a != 0</i>;</li>
+    <li><i>-10<sup>9</sup> <= a, b, c <= 10<sup>9</sup></i>.</li>
+    </ul>
+</p>
