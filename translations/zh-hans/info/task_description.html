@@ -1,0 +1,53 @@
+<!-- Describe task in general -->
+
+<p>
+    一元二次方程表示为 <code>ax<sup>2</sup> + bx + c = 0</code>.求它的根（y = 0 的 x 值）的一般公式是 ：  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}quadratic.png" alt="example" style="max-height: 200px"/>
+</p>
+<p>
+    这个公式提供了两个根： <code>x<sub>1</sub>, x<sub>2</sub></code>.平方根内的值 <code>b<sup>2</sup>-4ac</code>称为判别式 (<code>D</code>)。根据判别式的值，一元二次方程可以有 ：
+</p>
+<ul>
+    <li>两个不同的实数根 (<code>D> 0</code>)；</li>
+    <li>一个实数根 (<code>D = 0</code>)；</li>
+    <li>没有实数根 (<code>D < 0</code>)。</li>
+</ul>
+<p>
+    您的代码必须返回{% if is_js %}一个元组{% else %}<span>Iterable</span> {% endif %} ，其中包含两个值：根 <code>x<sub>1</sub>, x<sub>2</sub></code>，按降序排序。如果只有一个实数根，两个值将相同。如果没有实数根，{% if is_js %}元组{% else %}<span>Iterable</span> {% endif %} 应包含字符串<code>"No real roots"</code> 。
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>输入：</strong>三个整数 <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>输出：</strong> {% if is_js %}元组<span>(Tuple)</span>{% else %} 元组或其他可迭代{% endif %} 的两个整数 <span>({% if is_js %}number{% else %}int{% endif %})</span>或字符串 <span>(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>示例</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>如何使用：</strong>
+    <i>此函数可用于数学计算、物理模拟、优化问题或任何需要使用二次方程的地方。</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>前提条件</strong>
+    <ul>
+    <li><i>a!= 0</i>;</li>
+    <li>-<i><sup>109</sup>&lt;= a, b, c &lt;=<sup>109</sup></i>.</li>
+    </ul>
+</p>
