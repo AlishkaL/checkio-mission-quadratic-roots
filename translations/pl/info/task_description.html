@@ -1,0 +1,53 @@
+<!-- Describe task in general -->
+
+<p>
+    Równanie kwadratowe jest przedstawiane jako <code>ax<sup>2</sup> + bx + c = 0</code>. Ogólny wzór na znalezienie pierwiastków (wartości x, dla których y = 0) jest następujący:  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}quadratic.png" alt="example" style="max-height: 200px"/>
+</p>
+<p>
+    Ten wzór daje dwa pierwiastki: <code>x<sub>1</sub>, x<sub>2</sub></code>. Wartość wewnątrz pierwiastka kwadratowego, <code>b<sup>2</sup>-4ac</code> jest znana jako wyróżnik (<code>D</code>). Na podstawie wartości wyróżnika, równanie kwadratowe może mieć postać:
+</p>
+<ul>
+    <li>dwa różne pierwiastki rzeczywiste (<code>D> 0</code>);</li>
+    <li>jeden pierwiastek rzeczywisty (<code>D = 0</code>);</li>
+    <li>brak rzeczywistych pierwiastków (<code>D < 0</code>).</li>
+</ul>
+<p>
+    Państwa kod musi zwrócić {% if is_js %}krotkę{% else %}<span>Iterable</span> {% endif %} zawierającą dwie wartości: korzenie <code>x<sub>1</sub>, x<sub>2</sub></code>posortowane malejąco. Jeśli istnieje tylko jeden prawdziwy korzeń, obie wartości będą takie same. Jeśli nie ma prawdziwych korzeni, krotka {% if is_js %}{% else %} <span>Iterable</span> {% endif %} powinna zawierać ciąg <code>"No real roots"</code>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Dane wejściowe:</strong> Trzy liczby całkowite <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Wyjście:</strong> {% if is_js %}Tuple{% else %} Tuple lub inne Iterable{% endif %} dwóch liczb całkowitych <span>({% if is_js %}number{% else %}int{% endif %})</span> lub ciąg znaków <span>(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Przykłady:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>Jak jest używana:</strong>
+    <i>funkcja ta może być przydatna w obliczeniach matematycznych, symulacjach fizycznych, problemach optymalizacyjnych lub wszędzie tam, gdzie wykorzystywane są równania kwadratowe.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Warunki wstępne:</strong>
+    <ul>
+    <li><i>a!= 0</i>;</li>
+    <li>-<i><sup>109</sup> &lt;= a, b, c &lt;=<sup>109</sup></i>.</li>
+    </ul>
+</p>
