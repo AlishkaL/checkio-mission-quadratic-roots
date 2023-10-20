@@ -1,0 +1,53 @@
+<!-- Describe task in general -->
+
+<p>
+    Квадратне рівняння подається у вигляді <code>ax<sup>2</sup> + bx + c = 0</code>. Загальна формула для знаходження його коренів (значень x, для яких y = 0) має вигляд:  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}quadratic.png" alt="example" style="max-height: 200px"/>
+</p>
+<p>
+    Ця формула дає два корені: <code>x<sub>1</sub>, x<sub>2</sub></code>. Значення всередині квадратного кореня, <code>b<sup>2</sup>-4ac</code> називається дискримінантом (<code>D</code>). Залежно від значення дискримінанта, квадратне рівняння може мати вигляд:
+</p>
+<ul>
+    <li>два різних дійсних кореня (<code>D> 0</code>);</li>
+    <li>один дійсний корінь (<code>D = 0</code>);</li>
+    <li>не має дійсних коренів (<code>D < 0</code>).</li>
+</ul>
+<p>
+    Ваш код повинен повернути {% if is_js %}кортеж{% else %}<span>Iterable</span> {% endif %} , що містить два значення: корені <code>x<sub>1</sub>, x<sub>2</sub></code>відсортовані за спаданням. Якщо існує лише один справжній корінь, обидва значення будуть однаковими. Якщо дійсних коренів немає, то {% if is_js %}кортеж{% else %}<span>Iterable</span> {% endif %} повинен містити рядок <code>"No real roots"</code>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Вхідні дані:</strong> Три цілих числа <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Вихідні дані:</strong> {% if is_js %}Кортеж <span>(Tuple)</span>{% else %} Кортеж або інший змінний{% endif %} з двох цілих чисел <span>({% if is_js %}number{% else %}int{% endif %})</span> або рядка <span>(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Приклади:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>Як використовується:</strong>
+    <i>ця функція може бути корисною у математичних обчисленнях, фізичному моделюванні, оптимізаційних задачах або будь-де, де використовуються квадратні рівняння.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Попередні умови:</strong>
+    <ul>
+    <li><i>a!= 0</i>;</li>
+    <li>-<i><sup>109</sup> &lt;= a, b, c &lt;=<sup>109</sup></i>.</li>
+    </ul>
+</p>
