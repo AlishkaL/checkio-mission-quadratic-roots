@@ -1,0 +1,53 @@
+<!-- Describe task in general -->
+
+<p>
+    Une équation quadratique est représentée par <code>ax<sup>2</sup> + bx + c = 0</code>. La formule générale pour trouver ses racines (valeurs x pour lesquelles y = 0) est:  
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}quadratic.png" alt="example" style="max-height: 200px"/>
+</p>
+<p>
+    Cette formule fournit deux racines: <code>x<sub>1</sub>, x<sub>2</sub></code>. La valeur à l'intérieur de la racine carrée, <code>b<sup>2</sup>-4ac</code> est appelée discriminant (<code>D</code>). En fonction de la valeur du discriminant, une équation quadratique peut avoir:
+</p>
+<ul>
+    <li>deux racines réelles distinctes (<code>D> 0</code>);</li>
+    <li>une seule racine réelle (<code>D = 0</code>);</li>
+    <li>aucune racine réelle (<code>D < 0</code>).</li>
+</ul>
+<p>
+    Votre code doit renvoyer {% if is_js %}un tuple{% else %}<span>Iterable</span> {% endif %} contenant deux valeurs: les racines <code>x<sub>1</sub>, x<sub>2</sub></code>triées par ordre décroissant. S'il n'y a qu'une seule racine réelle, les deux valeurs seront identiques. S'il n'y a pas de racines réelles, le tuple {% if is_js %}{% else %} <span>Iterable</span> {% endif %} doit contenir la chaîne <code>"No real roots"</code>.
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Entrée:</strong> Trois entiers <span>({% if is_js %}number{% else %}int{% endif %})</span>.
+</p>
+
+<p>
+   <strong>Sortie:</strong> {% if is_js %}Tuple{% else %} Tuple ou autre Iterable{% endif %} de deux entiers <span>({% if is_js %}number{% else %}int{% endif %})</span> ou chaîne de caractères <span>(str{% if is_js %}ing{% endif %})</span>. 
+</p>
+
+<p>
+    <strong>Exemples:</strong>
+</p>
+
+<pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+
+<!-- Here you can explain how it can be used in development -->
+<!-- The section is optional -->
+<p class="for_info_only">
+
+    <strong>Comment elle est utilisée:</strong>
+    <i>cette fonction peut être utile dans les calculs mathématiques, les simulations de physique, les problèmes d'optimisation ou partout où des équations quadratiques sont utilisées.</i>
+</p>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Conditions préalables:</strong>
+    <ul>
+    <li><i>a!= 0</i>;</li>
+    <li>-<i><sup>109</sup> &lt;= a, b, c &lt;=<sup>109</sup></i>.</li>
+    </ul>
+</p>
