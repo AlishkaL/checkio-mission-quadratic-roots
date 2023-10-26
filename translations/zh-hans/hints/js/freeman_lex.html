@@ -1,0 +1,144 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        我不知道如何开始解决这个任务。
+    </div>
+    <div class="answer">
+        <p>
+            给你出个主意💡！按照数学算法来做就行。计算判别式，检查判别式是否大于 0 - 计算并返回两个根，如果判别式等于 0 - 计算并返回一个根。否则返回一个字符串。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        好吧，我应该从哪里开始呢？
+    </div>
+    <div class="answer">
+        <p>
+            我们来计算判别式。
+        </p>
+        <pre class="brush: javascript">
+const discriminant = b * b - 4 * a * c;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        接下来要做什么？
+    </div>
+    <div class="answer">
+        <p>
+            使用<b class="code">if</b> 语句。由于每个<b class="code">if</b> 都以<b class="code">return</b> 语句结束，因此实际上不需要使用<b class="code">else if</b> 或<b class="code">else</b> 关键字。首先，在<b class="code">discriminant> 0</b>. 
+        </p>
+        <pre class="brush: javascript">
+if (discriminant> 0) {
+    ...}
+        </pre>
+        <p>
+            创建表达式，根据公式计算<b class="code">roo1, root2</b>...
+        </p>
+        <pre class="brush: javascript">
+const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        </pre>
+        <p>
+            ... 并以数组形式返回。
+        </p>
+        <pre class="brush: javascript">
+return [root1, root2]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        我还需要一个提示。
+    </div>
+    <div class="answer">
+        <p>
+            检查第二种情况，当<b class="code">discriminant == 0</b> 或<b class="code">!discriminant</b> 时。在这种情况下，只计算一个<b class="code">root</b> ，并返回一个包含两个相同值的数组。  
+        </p>
+        <pre class="brush: javascript">
+if (!discriminant) {
+    const root = -b / (2 * a);
+    return [root, root]}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        如何完成代码？
+    </div>
+    <div class="answer">
+        <p>
+            唯一剩下的情况（当<b class="code">discriminant < 0</b> 时）要求将某个字符串作为数组的单个元素返回。  
+        </p>
+        <pre class="brush: javascript">
+return ["No real roots"]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        那么，我的最终解决方案应该是怎样的呢？
+    </div>
+    <div class="answer">
+        <p>
+            您只需将之前所有的提示连接起来，然后将代码封装成函数表达式即可。强烈建议对输入和输出数据使用类型提示。
+        </p>
+        <p>下面是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function quadraticRoots(a: number, b: number, c: number): [number, number] | [string] {
+    
+    const discriminant = b * b - 4 * a * c;
+    if (discriminant> 0) {
+        const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        return [root1, root2]}
+    if (!discriminant) {
+        const root = -b / (2 * a);
+        return [root, root]}
+    return ["No real roots"]
+}
+        </pre>
+        </div>
+        <p>点击任务菜单<b>Best Solutions</b> ，查看更多有趣的解决方案！</p>
+    </div>
+</div>
+<!-- <div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            In this solution you return an Iterable object, not a list. Use <b class="code">try/except</b> to handle case when <b class="code">discriminant < 0</b>, then yield first root, calculate and yield second root of first root again.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    try:
+        d_sq = math.sqrt(b * b - 4 * a * c)
+        yield (root1:= (-b + d_sq) / (2 * a))
+        yield d_sq and (-b - d_sq) / (2 * a) or root1
+    except: yield "No real roots"
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div> -->
+<div class="question-answer">
+    <div class="question">
+        谢谢！我现在知道并理解得更多了！一切正常！
+    </div>
+    <div class="answer">
+        很高兴听到这个消息 👍！
+    </div>
+</div>
+</body>
