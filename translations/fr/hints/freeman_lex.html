@@ -1,0 +1,146 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Je n'ai aucune idée de la manière de commencer à résoudre cette mission.
+    </div>
+    <div class="answer">
+        <p>
+            Attrapez une idée 💡! Il suffit de suivre l'algorithme mathématique. Calculer le discriminant, vérifier s'il est supérieur à 0 - calculer et renvoyer deux racines, s'il est égal à 0 - calculer et renvoyer une racine. Sinon, renvoyez une chaîne de caractères.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, par quoi dois-je commencer?
+    </div>
+    <div class="answer">
+        <p>
+            Calculons le discriminant.
+        </p>
+        <pre class="brush: python">
+discriminant = b * b - 4 * a * c
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Que faire ensuite?
+    </div>
+    <div class="answer">
+        <p>
+            Utilisez la déclaration <b class="code">if</b>. Puisque chaque <b class="code">if</b> se termine par l'instruction <b class="code">return</b>, vous n'avez pas besoin d'utiliser les mots-clés <b class="code">elif</b> ou <b class="code">else</b>. Tout d'abord, construisez une branche où <b class="code">discriminant> 0</b>. 
+        </p>
+        <pre class="brush: python">
+if discriminant> 0:
+    ...
+        </pre>
+        <p>
+            Vous devez importer le module <b class="code">math</b> pour utiliser sa fonction <b class="code">sqrt</b>. Créez des expressions pour calculer <b class="code">roo1, root2</b> selon la formule ...
+        </p>
+        <pre class="brush: python">
+root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        </pre>
+        <p>
+            ... et les retourner sous forme de liste.
+        </p>
+        <pre class="brush: python">
+return [root1, root2]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        J'ai encore besoin d'un indice.
+    </div>
+    <div class="answer">
+        <p>
+            Vérifiez le deuxième cas, lorsque <b class="code">discriminant == 0</b> ou <b class="code">not discriminant</b>. Dans ce cas, ne calculez qu'un seul <b class="code">root</b> et renvoyez une liste contenant deux valeurs identiques.  
+        </p>
+        <pre class="brush: python">
+if not discriminant:
+    root = -b / (2 * a)
+    return [root, root]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Comment terminer le code?
+    </div>
+    <div class="answer">
+        <p>
+            Le seul cas restant (lorsque <b class="code">discriminant < 0</b>) exige le retour d'une certaine chaîne en tant qu'élément unique d'une liste.  
+        </p>
+        <pre class="brush: python">
+return ["No real roots"]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Alors, à quoi devrait ressembler ma solution finale?
+    </div>
+    <div class="answer">
+        <p>
+            Il vous suffit de combiner tous les indices précédents et d'envelopper votre code dans une expression de fonction. Il est fortement recommandé d'utiliser des indications de type pour les données d'entrée et de sortie.
+        </p>
+        <p>Voici la solution complète:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    discriminant = b * b - 4 * a * c
+    if discriminant> 0:
+        root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        return [root1, root2]
+    if not discriminant:
+        root = -b / (2 * a)
+        return [root, root]
+    return ["No real roots"]
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Montrez-moi d'autres solutions!<br />
+        parce que je veux être une vraie 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Bien sûr, prenez-le!</p>
+        <p>
+            Dans cette solution, vous retournez un objet Iterable, pas une liste. Utilisez <b class="code">try/except</b> pour gérer le cas où <b class="code">discriminant < 0</b>, puis donnez la première racine, calculez et donnez à nouveau la seconde racine de la première racine.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    try:
+        d_sq = math.sqrt(b * b - 4 * a * c)
+        yield (root1:= (-b + d_sq) / (2 * a))
+        yield d_sq and (-b - d_sq) / (2 * a) or root1
+    except: yield "No real roots"
+        </pre>
+        </div>
+        <p>Cliquez sur <b>Best Solutions</b> dans le menu mission et découvrez de nombreuses autres solutions intéressantes!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Merci beaucoup! Je comprends mieux maintenant! Tout fonctionne bien!
+    </div>
+    <div class="answer">
+        Heureux de l'apprendre 👍!
+    </div>
+</div>
+</body>
