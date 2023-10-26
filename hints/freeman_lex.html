@@ -1,0 +1,146 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        <p>
+            Catch an idea 💡! Just follow the math algorithm. Calculate discriminant, check if it's bigger then 0 - calculate and return two roots, if it's equal 0 - calculate and return one root. Otherwise return a string.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, what should I start from?
+    </div>
+    <div class="answer">
+        <p>
+            Let's calculate discriminant.
+        </p>
+        <pre class="brush: python">
+discriminant = b * b - 4 * a * c
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        What to do next?
+    </div>
+    <div class="answer">
+        <p>
+            Use <b class="code">if</b> statement. Since every <b class="code">if</b> ends with <b class="code">return</b> statement, you actually don't need to use <b class="code">elif</b> or <b class="code">else</b> keywords. First, built a branch where <b class="code">discriminant > 0</b>. 
+        </p>
+        <pre class="brush: python">
+if discriminant > 0:
+    ...
+        </pre>
+        <p>
+            You need to import <b class="code">math</b> module to use its <b class="code">sqrt</b> function. Create expressions to calculate <b class="code">roo1, root2</b> according to the formula ...
+        </p>
+        <pre class="brush: python">
+root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        </pre>
+        <p>
+            ... and return them as a list.
+        </p>
+        <pre class="brush: python">
+return [root1, root2]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I still need a hint.
+    </div>
+    <div class="answer">
+        <p>
+            Check the second case, when <b class="code">discriminant == 0</b> or <b class="code">not discriminant</b>. In this case calculate only one <b class="code">root</b> and return a list with two same values.  
+        </p>
+        <pre class="brush: python">
+if not discriminant:
+    root = -b / (2 * a)
+    return [root, root]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        How to finish the code?
+    </div>
+    <div class="answer">
+        <p>
+            The only case left (when <b class="code">discriminant < 0</b>) demands returning of a certain string as a single element of a list.  
+        </p>
+        <pre class="brush: python">
+return ["No real roots"]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        So, how my final solution should look like?
+    </div>
+    <div class="answer">
+        <p>
+            You just need to join all previous hints and wrap your code into function expression. Using type hints for input and output data are highly recommended.
+        </p>
+        <p>Here is the whole solution:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    discriminant = b * b - 4 * a * c
+    if discriminant > 0:
+        root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        return [root1, root2]
+    if not discriminant:
+        root = -b / (2 * a)
+        return [root, root]
+    return ["No real roots"]
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            In this solution you return an Iterable object, not a list. Use <b class="code">try/except</b> to handle case when <b class="code">discriminant < 0</b>, then yield first root, calculate and yield second root of first root again.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    try:
+        d_sq = math.sqrt(b * b - 4 * a * c)
+        yield (root1 := (-b + d_sq) / (2 * a))
+        yield d_sq and (-b - d_sq) / (2 * a) or root1
+    except: yield "No real roots"
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Thanks! I know and understand more now! Everything works fine!
+    </div>
+    <div class="answer">
+        Glad to hear it 👍!
+    </div>
+</div>
+</body>
