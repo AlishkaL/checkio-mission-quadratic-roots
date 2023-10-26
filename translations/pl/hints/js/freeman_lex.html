@@ -1,0 +1,144 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać pomysł 💡! Proszę postępować zgodnie z algorytmem matematycznym. Proszę obliczyć wyróżnik, sprawdzić czy jest większy od 0 - obliczyć i zwrócić dwa pierwiastki, jeśli jest równy 0 - obliczyć i zwrócić jeden pierwiastek. W przeciwnym razie proszę zwrócić ciąg znaków.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę obliczyć dyskryminantę.
+        </p>
+        <pre class="brush: javascript">
+const discriminant = b * b - 4 * a * c;
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Co robić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć wyrażenia <b class="code">if</b>. Ponieważ każda instrukcja <b class="code">if</b> kończy się instrukcją <b class="code">return</b>, nie muszą Państwo używać słów kluczowych <b class="code">else if</b> lub <b class="code">else</b>. Najpierw proszę utworzyć gałąź, w której <b class="code">discriminant> 0</b>. 
+        </p>
+        <pre class="brush: javascript">
+if (discriminant> 0) {
+    ...}
+        </pre>
+        <p>
+            Proszę utworzyć wyrażenie obliczające <b class="code">roo1, root2</b> zgodnie z formułą ...
+        </p>
+        <pre class="brush: javascript">
+const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        </pre>
+        <p>
+            ... i zwrócić je jako tablicę.
+        </p>
+        <pre class="brush: javascript">
+return [root1, root2]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nadal potrzebuję podpowiedzi.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę sprawdzić drugi przypadek, gdy <b class="code">discriminant == 0</b> lub <b class="code">!discriminant</b>. W tym przypadku proszę obliczyć tylko jedną wartość <b class="code">root</b> i zwrócić tablicę z dwiema takimi samymi wartościami.  
+        </p>
+        <pre class="brush: javascript">
+if (!discriminant) {
+    const root = -b / (2 * a);
+    return [root, root]}
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak zakończyć kod?
+    </div>
+    <div class="answer">
+        <p>
+            Jedyny przypadek (gdy <b class="code">discriminant < 0</b>) wymaga zwrócenia określonego ciągu jako pojedynczego elementu tablicy.  
+        </p>
+        <pre class="brush: javascript">
+return ["No real roots"]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy połączyć wszystkie poprzednie podpowiedzi i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+function quadraticRoots(a: number, b: number, c: number): [number, number] | [string] {
+    
+    const discriminant = b * b - 4 * a * c;
+    if (discriminant> 0) {
+        const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+        return [root1, root2]}
+    if (!discriminant) {
+        const root = -b / (2 * a);
+        return [root, root]}
+    return ["No real roots"]
+}
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<!-- <div class="question-answer">
+    <div class="question">
+        Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Javascript Hero!
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            In this solution you return an Iterable object, not a list. Use <b class="code">try/except</b> to handle case when <b class="code">discriminant < 0</b>, then yield first root, calculate and yield second root of first root again.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: javascript">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    try:
+        d_sq = math.sqrt(b * b - 4 * a * c)
+        yield (root1:= (-b + d_sq) / (2 * a))
+        yield d_sq and (-b - d_sq) / (2 * a) or root1
+    except: yield "No real roots"
+        </pre>
+        </div>
+        <p>Click <b>Best Solutions</b> at mission menu and see a lot of other interesting solutions!</p>
+    </div>
+</div> -->
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
