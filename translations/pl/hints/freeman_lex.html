@@ -1,0 +1,146 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        Nie mam pojęcia, jak zacząć rozwiązywać tę misję.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę złapać pomysł 💡! Proszę postępować zgodnie z algorytmem matematycznym. Proszę obliczyć wyróżnik, sprawdzić czy jest większy od 0 - obliczyć i zwrócić dwa pierwiastki, jeśli jest równy 0 - obliczyć i zwrócić jeden pierwiastek. W przeciwnym razie proszę zwrócić ciąg znaków.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Ok, od czego powinienem zacząć?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę obliczyć dyskryminantę.
+        </p>
+        <pre class="brush: python">
+discriminant = b * b - 4 * a * c
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Co robić dalej?
+    </div>
+    <div class="answer">
+        <p>
+            Proszę użyć wyrażenia <b class="code">if</b>. Ponieważ każde <b class="code">if</b> kończy się instrukcją <b class="code">return</b>, nie muszą Państwo używać słów kluczowych <b class="code">elif</b> lub <b class="code">else</b>. Najpierw proszę utworzyć gałąź, w której <b class="code">discriminant> 0</b>. 
+        </p>
+        <pre class="brush: python">
+if discriminant> 0:
+    ...
+        </pre>
+        <p>
+            Należy zaimportować moduł <b class="code">math</b>, aby użyć jego funkcji <b class="code">sqrt</b>. Proszę utworzyć wyrażenie obliczające <b class="code">roo1, root2</b> zgodnie z formułą ...
+        </p>
+        <pre class="brush: python">
+root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        </pre>
+        <p>
+            ... i zwrócić je jako listę.
+        </p>
+        <pre class="brush: python">
+return [root1, root2]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Nadal potrzebuję podpowiedzi.
+    </div>
+    <div class="answer">
+        <p>
+            Proszę sprawdzić drugi przypadek, gdy <b class="code">discriminant == 0</b> lub <b class="code">not discriminant</b>. W tym przypadku proszę obliczyć tylko jedną wartość <b class="code">root</b> i zwrócić listę z dwiema takimi samymi wartościami.  
+        </p>
+        <pre class="brush: python">
+if not discriminant:
+    root = -b / (2 * a)
+    return [root, root]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak zakończyć kod?
+    </div>
+    <div class="answer">
+        <p>
+            Jedyny przypadek (gdy <b class="code">discriminant < 0</b>) wymaga zwrócenia określonego ciągu jako pojedynczego elementu listy.  
+        </p>
+        <pre class="brush: python">
+return ["No real roots"]
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Jak więc powinno wyglądać moje ostateczne rozwiązanie?
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy połączyć wszystkie poprzednie podpowiedzi i zawinąć kod w wyrażenie funkcyjne. Używanie podpowiedzi typu dla danych wejściowych i wyjściowych jest wysoce zalecane.
+        </p>
+        <p>Poniżej znajduje się całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    discriminant = b * b - 4 * a * c
+    if discriminant> 0:
+        root1 = (-b + math.sqrt(discriminant)) / (2 * a)
+        root2 = (-b - math.sqrt(discriminant)) / (2 * a)
+        return [root1, root2]
+    if not discriminant:
+        root = -b / (2 * a)
+        return [root, root]
+    return ["No real roots"]
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwą 🥇 Python Ninnjaa!
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            W tym rozwiązaniu zwraca Pan obiekt Iterable, a nie listę. Proszę użyć <b class="code">try/except</b>, aby obsłużyć przypadek, gdy <b class="code">discriminant < 0</b>, a następnie zwrócić pierwszy pierwiastek, obliczyć i ponownie zwrócić drugi pierwiastek pierwszego pierwiastka.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+from collections.abc import Iterable
+import math
+
+
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+    
+    try:
+        d_sq = math.sqrt(b * b - 4 * a * c)
+        yield (root1:= (-b + d_sq) / (2 * a))
+        yield d_sq and (-b - d_sq) / (2 * a) or root1
+    except: yield "No real roots"
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa jak należy!
+    </div>
+    <div class="answer">
+        Miło mi to słyszeć 👍!
+    </div>
+</div>
+</body>
