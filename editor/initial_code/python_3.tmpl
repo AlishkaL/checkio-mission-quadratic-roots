@@ -1,8 +1,9 @@
 {% comment %}New initial code template{% endcomment %}
-{% block env %}from collections.abc import Iterable{% endblock env %}
+{% block env %}from collections.abc import Iterable
+from typing import Union{% endblock env %}
 
 {% block start %}
-def quadratic_roots(a: int, b: int, c: int) -> Iterable[int|str]:
+def quadratic_roots(a: int, b: int, c: int) -> Iterable[Union[int|float]|str]:
     # your code here
     return []
 {% endblock start %}
